@@ -28,7 +28,10 @@ def remove_task():
         print(f"Task '{removed_task}' removed")
     except (IndexError, ValueError):
         print("Invalid")
-    
+
+def write_to_file():
+    with open('task.txt','w') as f:
+        f.write('\n'.join(tasks))
 
 while True:
     show_menu()
@@ -36,6 +39,7 @@ while True:
     
     if choice == "1":
         add_task()
+        write_to_file()
     elif choice == "2":
         view_task()
     elif choice == "3":
